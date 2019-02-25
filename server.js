@@ -96,8 +96,6 @@ const getItemDesc = (itemId) => {
   });
 };
 
-const getItemCategories = (catId) => {};
-
 app.get('/api/items', (req, res) => {
   const searchTerm = req.query.search;
 
