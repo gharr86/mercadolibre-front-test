@@ -1,0 +1,58 @@
+@import '../../style/global.scss';
+
+.header {
+    background: $yellow;
+    height: 60px;
+
+    &-wrapper {
+        height: 100%;
+        width: 80%;
+        margin:auto;
+        display: flex;
+        align-items: center;
+    }
+
+    &__ml-logo {
+        background: url('../../assets/Logo_ML_2x.png') no-repeat;
+        background-size: cover;
+        min-width: 52px;
+        min-height: 35px;
+        flex-grow: 0;
+        cursor: pointer;
+    }
+
+    &__search-input {
+        font-size: 1rem;
+        color: $darkGrey;
+        padding: 10px;
+        border-top-left-radius: 4px;
+        border-bottom-left-radius: 4px;
+        flex-grow: 1;
+        margin-left: 15px;
+        border: none;
+
+        &:focus {
+            outline: none;
+        }
+    }
+
+    &__search-btn {
+        width: 40px;
+        height: 39px;
+        flex-grow: 0;
+        border-top-right-radius: 4px;
+        border-bottom-right-radius: 4px;
+        background: #EEEEEE;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        &:before {
+            content: '';
+            background: url('../../assets/ic_Search_2x.png') no-repeat;
+            background-size: cover;
+            width: 18px;
+            height: 18px;
+        }
+    }
+}

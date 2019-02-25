@@ -1,0 +1,46 @@
+// VARS
+
+$yellow: #FFE600;
+$black: #333333;
+$darkGrey: #666666;
+$medGrey: #999999;
+$lightGrey: #EEEEEE;
+$blue: #3483FA;
+
+$mobBreakpoint: '(max-width: 795px)';
+
+//MIXINS
+
+@mixin respond-to($mobBreakpoint) {
+    @media only screen and #{$mobBreakpoint} {
+        @content;
+    }
+}
+
+// RESET
+
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    background: $lightGrey;
+}
+
+ul, nav {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+ol {
+    list-style-position: inside;
+    padding: 0; 
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
