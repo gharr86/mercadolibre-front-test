@@ -4,6 +4,8 @@ const app = express();
 const port = process.env.PORT || 5000;
 const MLapi = 'https://api.mercadolibre.com';
 
+// format data ----------------------------------
+
 const searchResFormatter = (res, qty) => {
   if (res) {
     const { results, filters } = res;
@@ -72,6 +74,8 @@ const singleItemFormatter = (res) => {
   return {};
 };
 
+// get data -------------------------------------
+
 const getItem = (itemId) => {
   return new Promise((resolve, reject) => {
     request(`${MLapi}/items/${itemId}`, (err, response, body) => {
@@ -96,6 +100,8 @@ const getItemDesc = (itemId) => {
   });
 };
 
+// endpoints ------------------------------------
+
 app.get('/api/items', (req, res) => {
   const searchTerm = req.query.search;
 
@@ -117,5 +123,7 @@ app.get(['/api/items/:id'], (req, res) => {
     res.status(200).send(JSON.stringify(formattedItem));
   });
 });
+
+//
 
 app.listen(port, () => console.log(`Listening on port ${port}`));
