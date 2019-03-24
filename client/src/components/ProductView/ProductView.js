@@ -1,10 +1,12 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import BreadCrumb from '../BreadCrumb/BreadCrumb';
 
 import './ProductView.scss';
 
 const ProductView = (props) => {
     const { data, categories } = props;
+    console.log('data', data);
     
     const priceFormat = (price, decimals) => {
       if (Number.isInteger(price)) {
@@ -55,3 +57,8 @@ const ProductView = (props) => {
 }
 
 export default ProductView;
+
+ProductView.propTypes = {
+  data: PropTypes.object,
+  categories: PropTypes.array
+}

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Switch, Route } from "react-router-dom";
+import PropTypes from 'prop-types';
 
 import Header from './components/Header/Header';
 import SearchResults from './components/SearchResults/SearchResults';
@@ -27,6 +28,18 @@ class App extends React.Component {
       const { pathname } = location;
       history.push(pathname);
     }
+    
+    history.listen((location) => {
+      if (location.search) {
+        const { search } = location;
+        const searchTerm = search.slice(search.indexOf('=') + 1);
+        this.showSearchResults(searchTerm);
+      } else {
+        const { pathname } = location;
+        const itemId = pathname.slice(pathname.indexOf('M'));
+        this.showSingleItem(itemId);
+      }
+    });
   }
 
   getData(url) {
@@ -78,19 +91,6 @@ class App extends React.Component {
 
   render() {
     const { searchTerm, searchResults, openedItem } = this.state;
-    const { history } = this.props.match;
-
-    history.listen((location) => {
-      if (location.search) {
-        const { search } = location;
-        const searchTerm = search.slice(search.indexOf('=') + 1);
-        this.showSearchResults(searchTerm);
-      } else {
-        const { pathname } = location;
-        const itemId = pathname.slice(pathname.indexOf('M'));
-        this.showSingleItem(itemId);
-      }
-    });
 
     return (
       <div>
@@ -131,3 +131,7 @@ class App extends React.Component {
 }
 
 export default App;
+
+App.propTypes = {
+  match: PropTypes.object
+}

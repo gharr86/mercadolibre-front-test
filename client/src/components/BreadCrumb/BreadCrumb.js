@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import './BreadCrumb.scss';
 
@@ -17,3 +18,7 @@ const BreadCrumb = (props) => {
 }
 
 export default BreadCrumb;
+
+BreadCrumb.propTypes = {
+  steps: PropTypes.array
+}

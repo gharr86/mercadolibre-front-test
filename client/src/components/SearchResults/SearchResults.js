@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import BreadCrumb from '../BreadCrumb/BreadCrumb';
+
 
 import './SearchResults.scss';
 
@@ -74,3 +76,7 @@ const SearchResults = (props) => {
 }
 
 export default SearchResults;
+
+SearchResults.propTypes = {
+  data: PropTypes.object
+}

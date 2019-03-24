@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 import './Header.scss';
 
@@ -30,3 +31,10 @@ const Header = (props) => {
 }
 
 export default Header;
+
+Header.propTypes = {
+  handleChange: PropTypes.func,
+  searchTerm: PropTypes.string,
+  handleClick: PropTypes.func,
+  handleKeyUp: PropTypes.func
+}
